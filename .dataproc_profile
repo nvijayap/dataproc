@@ -39,3 +39,11 @@ dpw() { sd dpw; dp workflow-templates "$@"; }
 # ------------------------
 
 dpjs() { sd dpjs; dpj submit "$@"; }
+
+# -----------------------------
+# -- the ones related to sbt --
+# -----------------------------
+
+sbtcp() { sbt clean package; }
+
+sbtp() { sbt package; }
