@@ -1,0 +1,41 @@
+# ------------------------------------------------
+# .dataproc_profile
+# ------------------------------------------------
+# if you like/want to work with shortcuts,
+# you can source this file in your .bash_profile
+# you can rename the functions to suit your taste
+# ------------------------------------------------
+
+ty() { type "$@"; }
+
+# ---------------------------------------------------
+# the bash functions that follow are self-describing
+# and most of them are nested
+# ---------------------------------------------------
+
+# you can turn this off after you get used to the fns
+export SELF_DESCRIBE=N
+
+sd() { [ "$SELF_DESCRIBE" == "Y" ] && ty $1; }
+
+dp() { sd dp; gcloud dataproc "$@"; }
+
+# -----------------------
+# -- the ones after dp --
+# -----------------------
+
+dpa() { sd dpa; dp autoscaling-policies "$@"; }
+
+dpc() { sd dpc; dp clusters "$@"; }
+
+dpj() { sd dpj; dp jobs "$@"; }
+
+dpo() { sd dpo; dp operations "$@"; }
+
+dpw() { sd dpw; dp workflow-templates "$@"; }
+
+# ------------------------
+# -- the ones after dpj --
+# ------------------------
+
+dpjs() { sd dpjs; dpj submit "$@"; }
