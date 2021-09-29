@@ -1,3 +1,6 @@
+# Vim
+.*.swp
+
 # Binaries for programs and plugins
 *.exe
 *.exe~
@@ -13,3 +16,7 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# this is just a soft link to .dataproc_profile
+# the reason i am using it is to get the vim syntax highlighting
+.bash_profile
