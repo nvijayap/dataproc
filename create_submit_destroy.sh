@@ -31,9 +31,13 @@ sbt clean package || exit 3
 
 KEYFILE=`jq -r .keyfile ~/.dataproc/config.json`
 CLUSTER=`jq -r .cluster ~/.dataproc/config.json`
+
 PROJECT=`jq -r .project ~/.dataproc/config.json`
 REGION=`jq -r .region ~/.dataproc/config.json`
 ZONE=`jq -r .zone ~/.dataproc/config.json`
+
+SLEEP=`jq -r .sleep ~/.dataproc/config.json`
+
 JAR_PATH=`find . -name \*.jar`
 JAR_NAME=`basename $JAR_PATH`
 
@@ -55,9 +59,9 @@ echo -e "\n . Creating ...\n"
 
 terraform apply -auto-approve || exit 2
 
-echo -e "\n . Sleeping for a while (giving time for job to complete) ...\n"
+echo -e "\n . Sleeping for $SLEEP seconds (giving time for job to complete) ...\n"
 
-sleep 120
+sleep $SLEEP
 
 echo -e "\n . Destroying ...\n"
 
