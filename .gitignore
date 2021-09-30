@@ -23,3 +23,13 @@
 
 # this results from sbt
 target/
+
+# terraform hidden dir
+.terraform/
+
+# terraform state files
+terraform.tfstate
+terraform.tfstate.backup
+
+# terraform auto-generated file
+main.tf
