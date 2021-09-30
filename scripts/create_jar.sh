@@ -4,7 +4,7 @@
 # create_jar.sh - creates the jar for submitting spark job
 # ---------------------------------------------------------
 
-cat $0 # self-describe at runtime
+# cat $0 # self-describe at runtime
 
 if [ ! -f ~/.dataproc/config.json ]; then
   echo "
