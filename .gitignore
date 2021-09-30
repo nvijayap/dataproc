@@ -33,3 +33,6 @@ terraform.tfstate.backup
 
 # terraform auto-generated file
 main.tf
+
+# temporary area for terraform files
+tf/
