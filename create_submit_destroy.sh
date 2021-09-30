@@ -15,7 +15,6 @@ if [ ! -f ~/.dataproc/config.json ]; then
   "zone": "the-zone",
   "keyfile": "~/.dataproc/the-key-file.json",
   "cluster": "dataproc-cluster-name",
-  "command": "gcloud dataproc jobs submit --jar target/scala-2.12/dataproc_2.12-0.1.0-SNAPSHOT.jar --cluster dataproc-cluster-name"
 }
   "
   exit 1
@@ -30,7 +29,6 @@ fi
 
 sbt clean package || exit 3
 
-# COMMAND=`jq -r .command ~/.dataproc/config.json`
 KEYFILE=`jq -r .keyfile ~/.dataproc/config.json`
 CLUSTER=`jq -r .cluster ~/.dataproc/config.json`
 PROJECT=`jq -r .project ~/.dataproc/config.json`
@@ -39,7 +37,6 @@ ZONE=`jq -r .zone ~/.dataproc/config.json`
 JAR_PATH=`find . -name \*.jar`
 JAR_NAME=`basename $JAR_PATH`
 
-# s|COMMAND|$COMMAND|
 sed "
 s|KEYFILE|$KEYFILE|g
 s|CLUSTER|$CLUSTER|g
@@ -60,7 +57,7 @@ terraform apply -auto-approve || exit 2
 
 echo -e "\n . Sleeping for a while (giving time for job to complete) ...\n"
 
-sleep 300
+sleep 120
 
 echo -e "\n . Destroying ...\n"
 
