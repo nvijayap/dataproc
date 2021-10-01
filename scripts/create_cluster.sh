@@ -6,8 +6,6 @@
 
 cd `dirname $0`/..
 
-trap "/bin/rm -fr tf" SIGINT SIGTERM EXIT
-
 source scripts/functions.sh
 
 create_jar
@@ -29,7 +27,7 @@ ZONE=`jq -r .zone ~/.dataproc/config.json`
 JAR_PATH=`find . -name \*.jar`
 JAR_NAME=`basename $JAR_PATH`
 
-rm -fr tf; mkdir tf
+mkdir -p tf
 
 sed "
 s|KEYFILE|$KEYFILE|g
@@ -39,20 +37,22 @@ s|REGION|$REGION|g
 s|ZONE|$ZONE|g
 s|JAR_PATH|$JAR_PATH|g
 s|JAR_NAME|$JAR_NAME|g
-" templates/create_cluster.tf.template >tf/create_cluster.tf
+" templates/create_cluster.tf.template >tf/main.tf
 
 cd tf
 
-echo -e "\n . Initing ...\n"
+echo -e "\n . Initing terraform ...\n"
 
 terraform init || exit 1
 
-echo -e "\n . Validating ...\n"
+echo -e "\n . Validating terraform configuration ...\n"
 
 terraform validate || exit 1
 
-echo -e "\n . Creating ...\n"
+for gs in `gsutil ls`; do gsutil rm -r $gs; done
+
+echo -e "\n . Creating dataproc cluster at `date` ...\n"
 
 terraform apply -auto-approve || exit 2
 
-echo -e "\n . Done creating cluster\n"
+echo -e "\n . Done creating dataproc cluster at `date`\n"
