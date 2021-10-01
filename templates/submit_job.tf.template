@@ -5,15 +5,6 @@ provider "google" {
   zone    = "ZONE"
 }
 
-resource "google_dataproc_cluster" "CLUSTER" {
-  name   = "CLUSTER"
-  region = "REGION"
-
-  provisioner "local-exec" {
-    command = "gcloud auth activate-service-account --key-file KEYFILE; gsutil mb -p PROJECT gs://PROJECT-jars; gsutil cp JAR_PATH gs://PROJECT-jars/JAR_NAME"
-  }
-}
-
 resource "google_dataproc_job" "spark" {
   region       = google_dataproc_cluster.CLUSTER.region
   force_delete = true
