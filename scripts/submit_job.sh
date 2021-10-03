@@ -8,11 +8,8 @@ cd `dirname $0`/..
 
 source scripts/functions.sh
 
+# creates jar if it doesn't exist already or is older than scala code
 create_jar
-
-CLUSTER=`jq -r .cluster ~/.dataproc/config.json`
-
-JAR_PATH=`find . -name \*.jar`
 
 echo -e "\n . Submitting spark job at `date` ...\n"
 

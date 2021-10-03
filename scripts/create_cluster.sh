@@ -8,10 +8,8 @@ cd `dirname $0`/..
 
 source scripts/functions.sh
 
+# creates jar if it doesn't exist already or is older than scala code
 create_jar
-
-KEYFILE=`jq -r .keyfile ~/.dataproc/config.json`
-CLUSTER=`jq -r .cluster ~/.dataproc/config.json`
 
 gcloud dataproc clusters list | grep -q $CLUSTER
 
@@ -19,13 +17,6 @@ if [ $? -eq 0 ]; then
   echo -e "\n$CLUSTER already exists\n"
   exit 1
 fi
-
-PROJECT=`jq -r .project ~/.dataproc/config.json`
-REGION=`jq -r .region ~/.dataproc/config.json`
-ZONE=`jq -r .zone ~/.dataproc/config.json`
-
-JAR_PATH=`find . -name \*.jar`
-JAR_NAME=`basename $JAR_PATH`
 
 mkdir -p tf
 
