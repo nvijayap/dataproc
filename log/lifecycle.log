@@ -1,0 +1,437 @@
+JAR_FILE: ./target/scala-2.12/dataproc_2.12-0.1.0-SNAPSHOT.jar
+SRC_FILE: ./src/main/scala/Pi.scala
+Listed 0 items.
+
+ . Initing terraform ...
+
+
+Initializing the backend...
+
+Initializing provider plugins...
+- Reusing previous version of hashicorp/google from the dependency lock file
+- Using previously-installed hashicorp/google v3.86.0
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+
+ . Validating terraform configuration ...
+
+Success! The configuration is valid.
+
+Removing gs://dataproc-327519-jars/dataproc_2.12-0.1.0-SNAPSHOT.jar#1633219717783203...
+/ [1 objects]                                                                   
+Operation completed over 1 objects.                                              
+Removing gs://dataproc-327519-jars/...
+Removing gs://dataproc-staging-us-central1-694412547597-nucwawn9/google-cloud-dataproc-metainfo/90e01920-1b09-4d97-947b-f053cf0a7bd4/cluster.properties#1633219618813235...
+Removing gs://dataproc-staging-us-central1-694412547597-nucwawn9/google-cloud-dataproc-metainfo/90e01920-1b09-4d97-947b-f053cf0a7bd4/jobs/ffc403373aa148fa9ac285b16d153cd7/driveroutput.000000000#1633219745439511...
+Removing gs://dataproc-staging-us-central1-694412547597-nucwawn9/google-cloud-dataproc-metainfo/90e01920-1b09-4d97-947b-f053cf0a7bd4/jobs/ffc403373aa148fa9ac285b16d153cd7/driveroutput.000000001#1633219745493760...
+Removing gs://dataproc-staging-us-central1-694412547597-nucwawn9/google-cloud-dataproc-metainfo/90e01920-1b09-4d97-947b-f053cf0a7bd4/jobs/ffc403373aa148fa9ac285b16d153cd7/staging/dataproc_2.12-0.1.0-SNAPSHOT.jar#1633219721586162...
+/ [4 objects]                                                                   
+==> NOTE: You are performing a sequence of gsutil operations that may
+run significantly faster if you instead use gsutil -m rm ... Please
+see the -m section under "gsutil help options" for further information
+about when gsutil -m can be advantageous.
+
+Removing gs://dataproc-staging-us-central1-694412547597-nucwawn9/google-cloud-dataproc-metainfo/90e01920-1b09-4d97-947b-f053cf0a7bd4/simplecluster-m/dataproc-post-hdfs-startup-script_output#1633219705379402...
+Removing gs://dataproc-staging-us-central1-694412547597-nucwawn9/google-cloud-dataproc-metainfo/90e01920-1b09-4d97-947b-f053cf0a7bd4/simplecluster-m/dataproc-startup-script_output#1633219693700944...
+Removing gs://dataproc-staging-us-central1-694412547597-nucwawn9/google-cloud-dataproc-metainfo/90e01920-1b09-4d97-947b-f053cf0a7bd4/simplecluster-w-0/dataproc-startup-script_output#1633219666510591...
+Removing gs://dataproc-staging-us-central1-694412547597-nucwawn9/google-cloud-dataproc-metainfo/90e01920-1b09-4d97-947b-f053cf0a7bd4/simplecluster-w-1/dataproc-startup-script_output#1633219663913797...
+/ [8 objects]                                                                   
+Operation completed over 8 objects.                                              
+Removing gs://dataproc-staging-us-central1-694412547597-nucwawn9/...
+Removing gs://dataproc-temp-us-central1-694412547597-dqekmzd4/90e01920-1b09-4d97-947b-f053cf0a7bd4/mapreduce-job-history/done/#1633219670715647...
+Removing gs://dataproc-temp-us-central1-694412547597-dqekmzd4/90e01920-1b09-4d97-947b-f053cf0a7bd4/mapreduce-job-history/done_intermediate/#1633219671812558...
+Removing gs://dataproc-temp-us-central1-694412547597-dqekmzd4/90e01920-1b09-4d97-947b-f053cf0a7bd4/spark-job-history/#1633219687875721...
+Removing gs://dataproc-temp-us-central1-694412547597-dqekmzd4/90e01920-1b09-4d97-947b-f053cf0a7bd4/spark-job-history/application_1633219675469_0001#1633219744906054...
+/ [4 objects]                                                                   
+==> NOTE: You are performing a sequence of gsutil operations that may
+run significantly faster if you instead use gsutil -m rm ... Please
+see the -m section under "gsutil help options" for further information
+about when gsutil -m can be advantageous.
+
+Removing gs://dataproc-temp-us-central1-694412547597-dqekmzd4/90e01920-1b09-4d97-947b-f053cf0a7bd4/yarn-logs/#1633219735084096...
+Removing gs://dataproc-temp-us-central1-694412547597-dqekmzd4/90e01920-1b09-4d97-947b-f053cf0a7bd4/yarn-logs/root/#1633219735639560...
+Removing gs://dataproc-temp-us-central1-694412547597-dqekmzd4/90e01920-1b09-4d97-947b-f053cf0a7bd4/yarn-logs/root/logs-ifile/#1633219735753860...
+Removing gs://dataproc-temp-us-central1-694412547597-dqekmzd4/90e01920-1b09-4d97-947b-f053cf0a7bd4/yarn-logs/root/logs-ifile/application_1633219675469_0001/#1633219735916765...
+Removing gs://dataproc-temp-us-central1-694412547597-dqekmzd4/90e01920-1b09-4d97-947b-f053cf0a7bd4/yarn-logs/root/logs-ifile/application_1633219675469_0001/simplecluster-w-0.us-central1-c.c.dataproc-327519.internal_8026#1633219744933538...
+Removing gs://dataproc-temp-us-central1-694412547597-dqekmzd4/90e01920-1b09-4d97-947b-f053cf0a7bd4/yarn-logs/root/logs-ifile/application_1633219675469_0001/simplecluster-w-1.us-central1-c.c.dataproc-327519.internal_8026#1633219744942106...
+/ [10 objects]                                                                  
+Operation completed over 10 objects.                                             
+Removing gs://dataproc-temp-us-central1-694412547597-dqekmzd4/...
+
+ . Creating dataproc cluster at Sat Oct  2 17:19:07 PDT 2021 ...
+
+google_dataproc_cluster.simplecluster: Refreshing state... [id=projects/dataproc-327519/regions/us-central1/clusters/simplecluster]
+
+Note: Objects have changed outside of Terraform
+
+Terraform detected the following changes made outside of Terraform since the
+last "terraform apply":
+
+  # google_dataproc_cluster.simplecluster has been deleted
+  - resource "google_dataproc_cluster" "simplecluster" {
+      - graceful_decommission_timeout = "0s" -> null
+      - id                            = "projects/dataproc-327519/regions/us-central1/clusters/simplecluster" -> null
+      - labels                        = {
+          - "goog-dataproc-cluster-name" = "simplecluster"
+          - "goog-dataproc-cluster-uuid" = "90e01920-1b09-4d97-947b-f053cf0a7bd4"
+          - "goog-dataproc-location"     = "us-central1"
+        } -> null
+      - name                          = "simplecluster" -> null
+      - project                       = "dataproc-327519" -> null
+      - region                        = "us-central1" -> null
+
+      - cluster_config {
+          - bucket      = "dataproc-staging-us-central1-694412547597-nucwawn9" -> null
+          - temp_bucket = "dataproc-temp-us-central1-694412547597-dqekmzd4" -> null
+
+          - gce_cluster_config {
+              - internal_ip_only       = false -> null
+              - metadata               = {} -> null
+              - network                = "https://www.googleapis.com/compute/v1/projects/dataproc-327519/global/networks/default" -> null
+              - service_account_scopes = [
+                  - "https://www.googleapis.com/auth/bigquery",
+                  - "https://www.googleapis.com/auth/bigtable.admin.table",
+                  - "https://www.googleapis.com/auth/bigtable.data",
+                  - "https://www.googleapis.com/auth/cloud.useraccounts.readonly",
+                  - "https://www.googleapis.com/auth/devstorage.full_control",
+                  - "https://www.googleapis.com/auth/devstorage.read_write",
+                  - "https://www.googleapis.com/auth/logging.write",
+                ] -> null
+              - tags                   = [] -> null
+              - zone                   = "us-central1-c" -> null
+            }
+
+          - master_config {
+              - image_uri        = "https://www.googleapis.com/compute/v1/projects/cloud-dataproc/global/images/dataproc-2-0-deb10-20210917-180200-rc01" -> null
+              - instance_names   = [
+                  - "simplecluster-m",
+                ] -> null
+              - machine_type     = "n1-standard-4" -> null
+              - min_cpu_platform = "AUTOMATIC" -> null
+              - num_instances    = 1 -> null
+
+              - disk_config {
+                  - boot_disk_size_gb = 1000 -> null
+                  - boot_disk_type    = "pd-standard" -> null
+                  - num_local_ssds    = 0 -> null
+                }
+            }
+
+          - preemptible_worker_config {
+              - instance_names = [] -> null
+              - num_instances  = 0 -> null
+
+              - disk_config {}
+            }
+
+          - software_config {
+              - image_version       = "2.0.22-debian10" -> null
+              - optional_components = [] -> null
+              - override_properties = {} -> null
+              - properties          = {
+                  - "capacity-scheduler:yarn.scheduler.capacity.root.default.ordering-policy"  = "fair"
+                  - "core:fs.gs.block.size"                                                    = "134217728"
+                  - "core:fs.gs.metadata.cache.enable"                                         = "false"
+                  - "core:hadoop.ssl.enabled.protocols"                                        = "TLSv1,TLSv1.1,TLSv1.2"
+                  - "distcp:mapreduce.map.java.opts"                                           = "-Xmx768m"
+                  - "distcp:mapreduce.map.memory.mb"                                           = "1024"
+                  - "distcp:mapreduce.reduce.java.opts"                                        = "-Xmx768m"
+                  - "distcp:mapreduce.reduce.memory.mb"                                        = "1024"
+                  - "hadoop-env:HADOOP_DATANODE_OPTS"                                          = "-Xmx512m"
+                  - "hdfs:dfs.datanode.address"                                                = "0.0.0.0:9866"
+                  - "hdfs:dfs.datanode.http.address"                                           = "0.0.0.0:9864"
+                  - "hdfs:dfs.datanode.https.address"                                          = "0.0.0.0:9865"
+                  - "hdfs:dfs.datanode.ipc.address"                                            = "0.0.0.0:9867"
+                  - "hdfs:dfs.namenode.handler.count"                                          = "20"
+                  - "hdfs:dfs.namenode.http-address"                                           = "0.0.0.0:9870"
+                  - "hdfs:dfs.namenode.https-address"                                          = "0.0.0.0:9871"
+                  - "hdfs:dfs.namenode.lifeline.rpc-address"                                   = "simplecluster-m:8050"
+                  - "hdfs:dfs.namenode.secondary.http-address"                                 = "0.0.0.0:9868"
+                  - "hdfs:dfs.namenode.secondary.https-address"                                = "0.0.0.0:9869"
+                  - "hdfs:dfs.namenode.service.handler.count"                                  = "10"
+                  - "hdfs:dfs.namenode.servicerpc-address"                                     = "simplecluster-m:8051"
+                  - "hive:hive.fetch.task.conversion"                                          = "none"
+                  - "mapred-env:HADOOP_JOB_HISTORYSERVER_HEAPSIZE"                             = "3840"
+                  - "mapred:mapreduce.job.maps"                                                = "21"
+                  - "mapred:mapreduce.job.reduce.slowstart.completedmaps"                      = "0.95"
+                  - "mapred:mapreduce.job.reduces"                                             = "7"
+                  - "mapred:mapreduce.jobhistory.recovery.store.class"                         = "org.apache.hadoop.mapreduce.v2.hs.HistoryServerLeveldbStateStoreService"
+                  - "mapred:mapreduce.map.cpu.vcores"                                          = "1"
+                  - "mapred:mapreduce.map.java.opts"                                           = "-Xmx2524m"
+                  - "mapred:mapreduce.map.memory.mb"                                           = "3156"
+                  - "mapred:mapreduce.reduce.cpu.vcores"                                       = "1"
+                  - "mapred:mapreduce.reduce.java.opts"                                        = "-Xmx2524m"
+                  - "mapred:mapreduce.reduce.memory.mb"                                        = "3156"
+                  - "mapred:mapreduce.task.io.sort.mb"                                         = "256"
+                  - "mapred:yarn.app.mapreduce.am.command-opts"                                = "-Xmx2524m"
+                  - "mapred:yarn.app.mapreduce.am.resource.cpu-vcores"                         = "1"
+                  - "mapred:yarn.app.mapreduce.am.resource.mb"                                 = "3156"
+                  - "spark-env:SPARK_DAEMON_MEMORY"                                            = "3840m"
+                  - "spark:spark.driver.maxResultSize"                                         = "1920m"
+                  - "spark:spark.driver.memory"                                                = "3840m"
+                  - "spark:spark.executor.cores"                                               = "2"
+                  - "spark:spark.executor.instances"                                           = "2"
+                  - "spark:spark.executor.memory"                                              = "5739m"
+                  - "spark:spark.executorEnv.OPENBLAS_NUM_THREADS"                             = "1"
+                  - "spark:spark.scheduler.mode"                                               = "FAIR"
+                  - "spark:spark.sql.cbo.enabled"                                              = "true"
+                  - "spark:spark.ui.port"                                                      = "0"
+                  - "spark:spark.yarn.am.memory"                                               = "640m"
+                  - "yarn-env:YARN_NODEMANAGER_HEAPSIZE"                                       = "1536"
+                  - "yarn-env:YARN_RESOURCEMANAGER_HEAPSIZE"                                   = "3840"
+                  - "yarn-env:YARN_TIMELINESERVER_HEAPSIZE"                                    = "3840"
+                  - "yarn:yarn.nodemanager.address"                                            = "0.0.0.0:8026"
+                  - "yarn:yarn.nodemanager.resource.cpu-vcores"                                = "4"
+                  - "yarn:yarn.nodemanager.resource.memory-mb"                                 = "12624"
+                  - "yarn:yarn.resourcemanager.nodemanager-graceful-decommission-timeout-secs" = "86400"
+                  - "yarn:yarn.scheduler.maximum-allocation-mb"                                = "12624"
+                  - "yarn:yarn.scheduler.minimum-allocation-mb"                                = "1"
+                } -> null
+            }
+
+          - worker_config {
+              - image_uri        = "https://www.googleapis.com/compute/v1/projects/cloud-dataproc/global/images/dataproc-2-0-deb10-20210917-180200-rc01" -> null
+              - instance_names   = [
+                  - "simplecluster-w-0",
+                  - "simplecluster-w-1",
+                ] -> null
+              - machine_type     = "n1-standard-4" -> null
+              - min_cpu_platform = "AUTOMATIC" -> null
+              - num_instances    = 2 -> null
+
+              - disk_config {
+                  - boot_disk_size_gb = 1000 -> null
+                  - boot_disk_type    = "pd-standard" -> null
+                  - num_local_ssds    = 0 -> null
+                }
+            }
+        }
+    }
+
+Unless you have made equivalent changes to your configuration, or ignored the
+relevant attributes using ignore_changes, the following plan may include
+actions to undo or respond to these changes.
+
+─────────────────────────────────────────────────────────────────────────────
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # google_dataproc_cluster.simplecluster will be created
+  + resource "google_dataproc_cluster" "simplecluster" {
+      + graceful_decommission_timeout = "0s"
+      + id                            = (known after apply)
+      + labels                        = (known after apply)
+      + name                          = "simplecluster"
+      + project                       = (known after apply)
+      + region                        = "us-central1"
+
+      + cluster_config {
+          + bucket         = (known after apply)
+          + staging_bucket = (known after apply)
+          + temp_bucket    = (known after apply)
+
+          + autoscaling_config {
+              + policy_uri = (known after apply)
+            }
+
+          + encryption_config {
+              + kms_key_name = (known after apply)
+            }
+
+          + gce_cluster_config {
+              + internal_ip_only       = (known after apply)
+              + metadata               = (known after apply)
+              + network                = (known after apply)
+              + service_account        = (known after apply)
+              + service_account_scopes = (known after apply)
+              + subnetwork             = (known after apply)
+              + tags                   = (known after apply)
+              + zone                   = (known after apply)
+
+              + shielded_instance_config {
+                  + enable_integrity_monitoring = (known after apply)
+                  + enable_secure_boot          = (known after apply)
+                  + enable_vtpm                 = (known after apply)
+                }
+            }
+
+          + initialization_action {
+              + script      = (known after apply)
+              + timeout_sec = (known after apply)
+            }
+
+          + master_config {
+              + image_uri        = (known after apply)
+              + instance_names   = (known after apply)
+              + machine_type     = (known after apply)
+              + min_cpu_platform = (known after apply)
+              + num_instances    = (known after apply)
+
+              + accelerators {
+                  + accelerator_count = (known after apply)
+                  + accelerator_type  = (known after apply)
+                }
+
+              + disk_config {
+                  + boot_disk_size_gb = (known after apply)
+                  + boot_disk_type    = (known after apply)
+                  + num_local_ssds    = (known after apply)
+                }
+            }
+
+          + preemptible_worker_config {
+              + instance_names = (known after apply)
+              + num_instances  = (known after apply)
+
+              + disk_config {
+                  + boot_disk_size_gb = (known after apply)
+                  + boot_disk_type    = (known after apply)
+                  + num_local_ssds    = (known after apply)
+                }
+            }
+
+          + security_config {
+              + kerberos_config {
+                  + cross_realm_trust_admin_server        = (known after apply)
+                  + cross_realm_trust_kdc                 = (known after apply)
+                  + cross_realm_trust_realm               = (known after apply)
+                  + cross_realm_trust_shared_password_uri = (known after apply)
+                  + enable_kerberos                       = (known after apply)
+                  + kdc_db_key_uri                        = (known after apply)
+                  + key_password_uri                      = (known after apply)
+                  + keystore_password_uri                 = (known after apply)
+                  + keystore_uri                          = (known after apply)
+                  + kms_key_uri                           = (known after apply)
+                  + realm                                 = (known after apply)
+                  + root_principal_password_uri           = (known after apply)
+                  + tgt_lifetime_hours                    = (known after apply)
+                  + truststore_password_uri               = (known after apply)
+                  + truststore_uri                        = (known after apply)
+                }
+            }
+
+          + software_config {
+              + image_version       = (known after apply)
+              + optional_components = (known after apply)
+              + override_properties = (known after apply)
+              + properties          = (known after apply)
+            }
+
+          + worker_config {
+              + image_uri        = (known after apply)
+              + instance_names   = (known after apply)
+              + machine_type     = (known after apply)
+              + min_cpu_platform = (known after apply)
+              + num_instances    = (known after apply)
+
+              + accelerators {
+                  + accelerator_count = (known after apply)
+                  + accelerator_type  = (known after apply)
+                }
+
+              + disk_config {
+                  + boot_disk_size_gb = (known after apply)
+                  + boot_disk_type    = (known after apply)
+                  + num_local_ssds    = (known after apply)
+                }
+            }
+        }
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+google_dataproc_cluster.simplecluster: Creating...
+google_dataproc_cluster.simplecluster: Still creating... [10s elapsed]
+google_dataproc_cluster.simplecluster: Still creating... [20s elapsed]
+google_dataproc_cluster.simplecluster: Still creating... [30s elapsed]
+google_dataproc_cluster.simplecluster: Still creating... [40s elapsed]
+google_dataproc_cluster.simplecluster: Still creating... [50s elapsed]
+google_dataproc_cluster.simplecluster: Still creating... [1m0s elapsed]
+google_dataproc_cluster.simplecluster: Still creating... [1m10s elapsed]
+google_dataproc_cluster.simplecluster: Still creating... [1m20s elapsed]
+google_dataproc_cluster.simplecluster: Still creating... [1m30s elapsed]
+google_dataproc_cluster.simplecluster: Still creating... [1m40s elapsed]
+google_dataproc_cluster.simplecluster: Provisioning with 'local-exec'...
+google_dataproc_cluster.simplecluster (local-exec): Executing: ["/bin/sh" "-c" "gcloud auth activate-service-account --key-file ~/.dataproc/dataproc-327519-2d7c09a7fc9c.json; gsutil mb -p dataproc-327519 gs://dataproc-327519-jars; gsutil cp .././target/scala-2.12/dataproc_2.12-0.1.0-SNAPSHOT.jar gs://dataproc-327519-jars/dataproc_2.12-0.1.0-SNAPSHOT.jar"]
+google_dataproc_cluster.simplecluster (local-exec): Activated service account credentials for: [sa-206@dataproc-327519.iam.gserviceaccount.com]
+google_dataproc_cluster.simplecluster (local-exec): Creating gs://dataproc-327519-jars/...
+google_dataproc_cluster.simplecluster (local-exec): Copying file://.././target/scala-2.12/dataproc_2.12-0.1.0-SNAPSHOT.jar [Content-Type=application/java-archive]...
+google_dataproc_cluster.simplecluster (local-exec): / [0 files][    0.0 B/  3.2 KiB]
+google_dataproc_cluster.simplecluster: Still creating... [1m50s elapsed]
+google_dataproc_cluster.simplecluster (local-exec): / [1 files][  3.2 KiB/  3.2 KiB]
+google_dataproc_cluster.simplecluster (local-exec): Operation completed over 1 objects/3.2 KiB.
+google_dataproc_cluster.simplecluster: Creation complete after 1m50s [id=projects/dataproc-327519/regions/us-central1/clusters/simplecluster]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+ . Done creating dataproc cluster at Sat Oct  2 17:21:01 PDT 2021
+
+JAR_FILE: ./target/scala-2.12/dataproc_2.12-0.1.0-SNAPSHOT.jar
+SRC_FILE: ./src/main/scala/Pi.scala
+
+ . Submitting spark job at Sat Oct  2 17:21:03 PDT 2021 ...
+
+Job [cd27fd5200ca4a22be5c4cec1d407a08] submitted.
+Waiting for job output...
+21/10/03 00:21:12 INFO org.sparkproject.jetty.util.log: Logging initialized @4198ms to org.sparkproject.jetty.util.log.Slf4jLog
+21/10/03 00:21:13 INFO org.sparkproject.jetty.server.Server: jetty-9.4.40.v20210413; built: 2021-04-13T20:42:42.668Z; git: b881a572662e1943a14ae12e7e1207989f218b74; jvm 1.8.0_292-b10
+21/10/03 00:21:13 INFO org.sparkproject.jetty.server.Server: Started @4413ms
+21/10/03 00:21:13 INFO org.sparkproject.jetty.server.AbstractConnector: Started ServerConnector@278f8425{HTTP/1.1, (http/1.1)}{0.0.0.0:38523}
+21/10/03 00:21:14 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at simplecluster-m/10.128.15.221:8032
+21/10/03 00:21:14 INFO org.apache.hadoop.yarn.client.AHSProxy: Connecting to Application History server at simplecluster-m/10.128.15.221:10200
+21/10/03 00:21:15 INFO org.apache.hadoop.conf.Configuration: resource-types.xml not found
+21/10/03 00:21:15 INFO org.apache.hadoop.yarn.util.resource.ResourceUtils: Unable to find 'resource-types.xml'.
+21/10/03 00:21:16 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1633220412424_0001
+21/10/03 00:21:17 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at simplecluster-m/10.128.15.221:8030
+21/10/03 00:21:20 INFO com.google.cloud.hadoop.repackaged.gcs.com.google.cloud.hadoop.gcsio.GoogleCloudStorageImpl: Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
+==============================================================
+Pi is roughly 3.142475712378562
+==============================================================
+21/10/03 00:21:28 INFO org.sparkproject.jetty.server.AbstractConnector: Stopped Spark@278f8425{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+Job [cd27fd5200ca4a22be5c4cec1d407a08] finished successfully.
+done: true
+driverControlFilesUri: gs://dataproc-staging-us-central1-694412547597-nucwawn9/google-cloud-dataproc-metainfo/301bcb69-37e3-4fdb-a407-3bd7c8428dca/jobs/cd27fd5200ca4a22be5c4cec1d407a08/
+driverOutputResourceUri: gs://dataproc-staging-us-central1-694412547597-nucwawn9/google-cloud-dataproc-metainfo/301bcb69-37e3-4fdb-a407-3bd7c8428dca/jobs/cd27fd5200ca4a22be5c4cec1d407a08/driveroutput
+jobUuid: 2600182e-40a7-3305-9b21-530fc75ab55d
+placement:
+  clusterName: simplecluster
+  clusterUuid: 301bcb69-37e3-4fdb-a407-3bd7c8428dca
+reference:
+  jobId: cd27fd5200ca4a22be5c4cec1d407a08
+  projectId: dataproc-327519
+sparkJob:
+  mainJarFileUri: gs://dataproc-staging-us-central1-694412547597-nucwawn9/google-cloud-dataproc-metainfo/301bcb69-37e3-4fdb-a407-3bd7c8428dca/jobs/cd27fd5200ca4a22be5c4cec1d407a08/staging/dataproc_2.12-0.1.0-SNAPSHOT.jar
+status:
+  state: DONE
+  stateStartTime: '2021-10-03T00:21:30.702912Z'
+statusHistory:
+- state: PENDING
+  stateStartTime: '2021-10-03T00:21:06.096581Z'
+- state: SETUP_DONE
+  stateStartTime: '2021-10-03T00:21:06.136298Z'
+- details: Agent reported job success
+  state: RUNNING
+  stateStartTime: '2021-10-03T00:21:06.421627Z'
+yarnApplications:
+- name: Spark Pi
+  progress: 1.0
+  state: FINISHED
+  trackingUrl: http://simplecluster-m:8088/proxy/application_1633220412424_0001/
+
+ . Deleting dataproc cluster at Sat Oct  2 17:21:33 PDT 2021 ...
+
+Waiting on operation [projects/dataproc-327519/regions/us-central1/operations/d408585a-b4cb-3de9-b653-d9e789b39743].
+Waiting for cluster deletion operation...
+................................................................................................................................done.
+Deleted [https://dataproc.googleapis.com/v1/projects/dataproc-327519/regions/us-central1/clusters/simplecluster].
