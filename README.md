@@ -6,13 +6,13 @@ Working with Google Dataproc
 
 Just do this to create a dataproc cluster, submit the Pi spark job to it and delete it ...
 
-```scripts/lifecycle.sh```
+`scripts/lifecycle.sh`
 
 NOTE: The script calls these other scripts in sequence ...
 
-1. scripts/create_cluster.sh - this creates a dataproc cluster using Terraform
-2. scripts/submit_job.sh - this submits the Pi Spark job
-3. scripts/delete_cluster.sh - this deletes the dataproc cluster
+1. `scripts/create_cluster.sh` - this creates a dataproc cluster using Terraform
+2. `scripts/submit_job.sh` - this submits the Pi Spark job
+3. `scripts/delete_cluster.sh` - this deletes the dataproc cluster
 
 # prerequisites
 
@@ -61,7 +61,7 @@ This script deletes the dataproc cluster ...
 
 # create jar
 
-This script creates the jar using sbt ...
+This script creates the jar using `sbt` ...
 
 `scripts/create_jar.sh`
 
@@ -69,7 +69,7 @@ NOTE: This script is called by other scripts
 
 # code
 
-The code to compute Pi is written in Scala
+The code to compute `Pi` is written in `Scala`
 
 # build tool
 
