@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-cd `dirname $0`
+cd `dirname $0`/..
 
-./create_cluster.sh
+scripts/create_cluster.sh
 
-./submit_job.sh
+scripts/submit_job.sh
 
-./delete_cluster.sh
+scripts/delete_cluster.sh
