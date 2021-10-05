@@ -8,6 +8,6 @@
 
 cd `dirname $0`/..
 
-source scripts/functions.sh
+source scripts/functions.sh || exit $?
 
 sbt clean package

@@ -6,7 +6,7 @@
 
 cd `dirname $0`/..
 
-source scripts/functions.sh
+source scripts/functions.sh || exit $?
 
 # creates jar if it doesn't exist already or is older than scala code
 create_jar

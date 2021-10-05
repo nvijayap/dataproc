@@ -6,7 +6,7 @@
 
 cd `dirname $0`/..
 
-source scripts/functions.sh
+source scripts/functions.sh || exit $?
 
 echo -e "\n . Deleting dataproc cluster at `date` ...\n"
 

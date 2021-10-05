@@ -6,7 +6,7 @@
 
 cd `dirname $0`/..
 
-source scripts/prereqs.sh
+source scripts/prereqs.sh || exit $?
 
 create_jar() {
   if [ `find . -name \*.jar | wc -l` -eq 1 ]; then
