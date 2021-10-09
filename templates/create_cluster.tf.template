@@ -9,6 +9,12 @@ resource "google_dataproc_cluster" "CLUSTER" {
   name   = "CLUSTER"
   region = "REGION"
 
+  cluster_config {
+    software_config {
+      image_version = "IMAGE_VERSION"
+    }
+  }
+
   provisioner "local-exec" {
     command = "gcloud auth activate-service-account --key-file KEYFILE; gsutil mb -p PROJECT gs://PROJECT-jars; gsutil cp ../JAR_PATH gs://PROJECT-jars/JAR_NAME"
   }
