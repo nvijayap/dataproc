@@ -1,7 +1,7 @@
 package com.example
 
+import sys.process._
 import scala.math.random
-
 import org.apache.spark.sql.SparkSession
 
 /**
@@ -17,15 +17,26 @@ object Pi {
 
     val n = math.min(100000L * slices, Int.MaxValue).toInt // avoid overflow
 
-    val count = spark.sparkContext.parallelize(1 until n, slices).map { i =>
+    val sparkContext = spark.sparkContext
+
+    val sparkVersion = sparkContext.version
+
+    val scalaVersion = util.Properties.versionNumberString
+
+    val javaVersion = System.getProperty("java.version")
+
+    val os = "cat /etc/os-release" !!
+
+    val count = sparkContext.parallelize(1 until n, slices).map { i =>
       val x = random * 2 - 1
       val y = random * 2 - 1
       if (x*x + y*y <= 1) 1 else 0
     }.reduce(_ + _)
 
-    println("==============================================================")
-    println(s"Pi is roughly ${4.0 * count / (n - 1)}")
-    println("==============================================================")
+    println("=======================================================================================")
+    val versions = s"Spark ${sparkVersion}, Scala ${scalaVersion}, Java ${javaVersion} on -\n\n${os}"
+    println(s"Pi is roughly ${4.0 * count / (n - 1)} - Computed using ${versions}")
+    println("=======================================================================================")
 
     spark.stop()
   }
