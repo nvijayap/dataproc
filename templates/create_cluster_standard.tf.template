@@ -11,7 +11,7 @@ resource "google_dataproc_cluster" "CLUSTER" {
 
   cluster_config {
     software_config {
-      image_version = "IMAGE_VERSION"
+      image_version = "STANDARD_IMAGE_VERSION"
     }
   }
 

@@ -24,7 +24,8 @@ if [ ! -f $config ]; then
 {
   "zone": "the-zone",
   "cluster": "dataproc-cluster-name",
-  "image_version": "dataproc-image-version",
+  "standard_image_version": "the-standard-dataproc-image-version",
+  "custom_image_url": "https://custom/dataproc/image/url",
   "keyfile": "/full/path/of/the-key-file"
 }
   "
@@ -77,16 +78,43 @@ else
   echo -e "\nCLUSTER: ${CLUSTER}"
 fi
 
-export IMAGE_VERSION=`jq -r .image_version $config`
-if [ -z $IMAGE_VERSION -o "$IMAGE_VERSION" == "null" ]; then
-  abort "Your $config is not well-formed; it doesn't have the image_version field"
+let image=0
+
+export STANDARD_IMAGE_VERSION=`jq -r .standard_image_version $config`
+# echo STANDARD_IMAGE_VERSION: .${STANDARD_IMAGE_VERSION}.
+if [ "$STANDARD_IMAGE_VERSION" == "" -o "$STANDARD_IMAGE_VERSION" == "null" ]; then
+  :
 else
-  echo -e "\nIMAGE_VERSION: ${IMAGE_VERSION}"
+  let image=${image}+1
+fi
+
+export CUSTOM_IMAGE_URL=`jq -r .custom_image_url $config`
+# echo CUSTOM_IMAGE_URL: .${CUSTOM_IMAGE_URL}.
+if [ "$CUSTOM_IMAGE_URL" == "" -o "$CUSTOM_IMAGE_URL" == "null" ]; then
+  :
+else
+  let image=${image}+1
+fi
+
+if [ $image -eq 2 ]; then
+  abort "Your $config is not well-formed; you cannot specify both standard_image_version and custom_image_url"
+elif [ $image -eq 1 ]; then
+  :
+else
+  abort "Your $config is not well-formed; specify either standard_image_version or custom_image_url"
+fi
+
+if [ "$STANDARD_IMAGE_VERSION" == "" -o "$STANDARD_IMAGE_VERSION" == "null" ]; then
+  echo -e "\nCUSTOM_IMAGE_URL: ${CUSTOM_IMAGE_URL}"
+  (cd templates; ln -sf create_cluster_custom.tf.template create_cluster.tf.template)
+elif [ "$CUSTOM_IMAGE_URL" == "" -o "$CUSTOM_IMAGE_URL" == "null" ]; then
+  echo -e "\nSTANDARD_IMAGE_VERSION: ${STANDARD_IMAGE_VERSION}"
+  (cd templates; ln -sf create_cluster_standard.tf.template create_cluster.tf.template)
 fi
 
 export KEYFILE=`jq -r '.keyfile' $config`
 if [ -z $KEYFILE -o "$KEYFILE" == "null" ]; then
   abort "Your $config is not well-formed; it doesn't have the keyfile field"
 else
-  echo -e "\nKEYFILE: ${KEYFILE}"
+  echo -e "\nKEYFILE: ${KEYFILE}\n"
 fi

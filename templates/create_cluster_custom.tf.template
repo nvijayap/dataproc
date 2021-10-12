@@ -1,0 +1,24 @@
+provider "google" {
+  credentials = file("KEYFILE")
+  project = "PROJECT"
+  region  = "REGION"
+  zone    = "ZONE"
+}
+
+resource "google_dataproc_cluster" "CLUSTER" {
+  name   = "CLUSTER"
+  region = "REGION"
+
+  cluster_config {
+    master_config {
+      image_uri = "CUSTOM_IMAGE_URL"
+    }
+    worker_config {
+      image_uri = "CUSTOM_IMAGE_URL"
+    }
+  }
+
+  provisioner "local-exec" {
+    command = "gcloud auth activate-service-account --key-file KEYFILE; gsutil mb -p PROJECT gs://PROJECT-jars; gsutil cp ../JAR_PATH gs://PROJECT-jars/JAR_NAME"
+  }
+}

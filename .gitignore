@@ -36,3 +36,6 @@ main.tf
 
 # temporary area for terraform files
 tf/
+
+# this is created during runtime
+templates/create_cluster.tf.template
