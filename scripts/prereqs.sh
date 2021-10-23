@@ -24,8 +24,7 @@ if [ ! -f $config ]; then
 {
   "zone": "the-zone",
   "cluster": "dataproc-cluster-name",
-  "standard_image_version": "the-standard-dataproc-image-version",
-  "custom_image_url": "https://custom/dataproc/image/url",
+  "standard_image_version_or_custom_image_url": "the-standard-dataproc-image-version or gs://bucket/custom-dataproc-image",
   "keyfile": "/full/path/of/the-key-file"
 }
   "
@@ -34,17 +33,11 @@ fi
 
 type brew >/dev/null 2>&1 || abort "Please install brew and then retry"
 
+type sdk >/dev/null 2>&1 || abort "Please install sdkman and then retry"
+
 type jq >/dev/null 2>&1 || abort "Please 'brew install jq' and then retry"
 
-type sbt >/dev/null 2>&1
-
-if [ $? -ne 0 ]; then
-  if [ "$OS" == "Darwin" ]; then
-    abort "Please 'brew install sbt' and then retry"
-  else # Linux
-    abort "Please 'sdk install sbt' and then retry"
-  fi
-fi
+type sbt >/dev/null 2>&1 || abort "Please 'sdk install sbt' and then retry"
 
 type terraform >/dev/null 2>&1 || abort "Please 'brew install terraform' and then retry"
 
@@ -78,30 +71,15 @@ else
   echo -e "\nCLUSTER: ${CLUSTER}"
 fi
 
-let image=0
-
-export STANDARD_IMAGE_VERSION=`jq -r .standard_image_version $config`
-# echo STANDARD_IMAGE_VERSION: .${STANDARD_IMAGE_VERSION}.
-if [ "$STANDARD_IMAGE_VERSION" == "" -o "$STANDARD_IMAGE_VERSION" == "null" ]; then
-  :
-else
-  let image=${image}+1
+export STANDARD_IMAGE_VERSION_OR_CUSTOM_IMAGE_URL=`jq -r .standard_image_version_or_custom_image_url $config`
+if [ "$STANDARD_IMAGE_VERSION_OR_CUSTOM_IMAGE_URL" == "" -o "$STANDARD_IMAGE_VERSION_OR_CUSTOM_IMAGE_URL" == "null" ]; then
+  abort "Your $config is not well-formed; it doesn't have the standard_image_version_or_custom_image_url field"
 fi
 
-export CUSTOM_IMAGE_URL=`jq -r .custom_image_url $config`
-# echo CUSTOM_IMAGE_URL: .${CUSTOM_IMAGE_URL}.
-if [ "$CUSTOM_IMAGE_URL" == "" -o "$CUSTOM_IMAGE_URL" == "null" ]; then
-  :
+if [[ "$STANDARD_IMAGE_VERSION_OR_CUSTOM_IMAGE_URL" == gs://* ]]; then
+  export CUSTOM_IMAGE_URL=$STANDARD_IMAGE_VERSION_OR_CUSTOM_IMAGE_URL
 else
-  let image=${image}+1
-fi
-
-if [ $image -eq 2 ]; then
-  abort "Your $config is not well-formed; you cannot specify both standard_image_version and custom_image_url"
-elif [ $image -eq 1 ]; then
-  :
-else
-  abort "Your $config is not well-formed; specify either standard_image_version or custom_image_url"
+  export STANDARD_IMAGE_VERSION=$STANDARD_IMAGE_VERSION_OR_CUSTOM_IMAGE_URL
 fi
 
 if [ "$STANDARD_IMAGE_VERSION" == "" -o "$STANDARD_IMAGE_VERSION" == "null" ]; then
