@@ -31,15 +31,11 @@ if [ ! -f $config ]; then
   abort
 fi
 
-type brew >/dev/null 2>&1 || abort "Please install brew and then retry"
+type jq >/dev/null 2>&1 || abort "Please install jq and then retry"
 
-type sdk >/dev/null 2>&1 || abort "Please install sdkman and then retry"
+type sbt >/dev/null 2>&1 || abort "Please install sbt and then retry"
 
-type jq >/dev/null 2>&1 || abort "Please 'brew install jq' and then retry"
-
-type sbt >/dev/null 2>&1 || abort "Please 'sdk install sbt' and then retry"
-
-type terraform >/dev/null 2>&1 || abort "Please 'brew install terraform' and then retry"
+type terraform >/dev/null 2>&1 || abort "Please terraform and then retry"
 
 type gcloud >/dev/null 2>&1 || abort "Please install google-cloud-sdk and then retry"
 
